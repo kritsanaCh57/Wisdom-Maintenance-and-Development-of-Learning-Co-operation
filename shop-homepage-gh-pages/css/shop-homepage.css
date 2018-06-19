@@ -1,0 +1,36 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.carousel-item{
+  background-color: #efefef;
+}
+
+
+.d-block {
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 450px;
+}
+
+.list-group, .margin-bottom-card{
+  margin-bottom: 16px;
+}
+
+.list-group{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  
+}
