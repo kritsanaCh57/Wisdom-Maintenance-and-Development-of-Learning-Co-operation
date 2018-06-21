@@ -16,7 +16,19 @@
     <!-- Custom styles for this template -->
     <link href="css/1-col-portfolio.css" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
+    <style>
+      .album{
+        background-color: #efefef; 
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+      }
     
+      .img-album{
+        display:inline-block;
+        height:100px;
+        overflow:hidden;
+      }
+    </style>
   </head>
 
   <body>
@@ -75,8 +87,17 @@
 
       <hr>
 
+
+
+
     </div>
     <!-- /.container -->
+
+    <div id="albums" class="row">
+      
+    </div>
+
+    <hr>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
@@ -90,5 +111,62 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
+  <script>
+    $(document).ready(function () {
 
+      
+      for(let i = 3; i <= 5; i++){
+        let path = `../assets/images/โครงการสืบสานภูมิปัญญา_${i}/`
+        let fileNames = new Array();
+        $.ajax({
+          url: path,
+          success: function (data) {
+            $(data).find("td > a").each(function () {
+              if (openFile($(this).attr("href"))) {
+                fileNames.push($(this).attr("href"));
+              }
+            });
+          }
+        }).then(function () {
+          // fileNames = shuffleArray(fileNames);
+          $.each(fileNames, function (key, value) {
+          $("#albums").append(`
+            <div class="col-sm-3 col-md-2 col-lg-1 album" >
+              <img class="img-fluid img-album" src="${path}${value}" alt="">
+            </div>`)
+          })
+        });
+      }
+      
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          let temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+        }
+      }
+
+      function openFile(file) {
+        var extension = file.substr((file.lastIndexOf('.') + 1)).toLowerCase()
+        switch (extension) {
+          case 'jpg':
+          case 'png':
+          case 'gif':   // the alert ended with pdf instead of gif.
+          case 'zip':
+          case 'rar':
+          case 'pdf':
+          case 'php':
+          case 'doc':
+          case 'docx':
+          case 'xls':
+          case 'xlsx':
+            return true;
+            break;
+          default:
+            return false;
+        }
+      };
+    });
+  </script>
 </html>
