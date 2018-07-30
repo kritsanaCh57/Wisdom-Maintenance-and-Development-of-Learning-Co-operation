@@ -1,0 +1,25 @@
+body{
+    /* font-family: 'Pridi', serif; */
+}
+
+.img-logo{
+    height: 40px;
+}
+
+header.masthead{
+    background-image: url(../assets/backgroud3.jpg);
+    background-color: hsla(0,0%,100%,0.2);
+    background-blend-mode: overlay;
+}
+
+.sub-text-left{
+    text-align: left;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.9);
+}
+
+.text-p-justify{
+    text-align: justify;
+}
