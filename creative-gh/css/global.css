@@ -23,3 +23,50 @@ header.masthead{
 .text-p-justify{
     text-align: justify;
 }
+
+.text-modal{
+    padding: 16px 0;
+}
+
+.col-no-padding {
+    padding-left: 0;
+    padding-right: 0;    
+    /* padding-left: 16px;
+    padding-right: 16px; */
+}
+
+.col-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.col-no-margin  {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.divide-content {
+    margin-top: 0; 
+    max-width: 100%;
+}
+
+
+.divide-content-light{
+    border-color: #ffffff;
+}
+
+.bg-light {
+    background-color: #f8f9fa!important;
+}
+
+.bg-content-text {
+    background-color: #ff6363;
+}
+
+.title-text {
+    color: #ffffff;
+}
+
+.content-text {
+    color: #ffdada;
+}
