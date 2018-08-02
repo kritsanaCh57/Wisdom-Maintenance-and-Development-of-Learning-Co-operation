@@ -1,5 +1,6 @@
 body{
     /* font-family: 'Pridi', serif; */
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .img-logo{
@@ -69,4 +70,12 @@ header.masthead{
 
 .content-text {
     color: #ffdada;
+}
+
+.section-no-padding-top{
+    padding-top: 0;
+}
+
+.section-no-padding-bottom{
+    padding-bottom: 0;
 }
