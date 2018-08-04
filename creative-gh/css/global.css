@@ -17,7 +17,7 @@ header.masthead{
     text-align: left;
 }
 
-.text-faded {
+.text-faded-2 {
     color: rgba(255,255,255,0.9);
 }
 
@@ -57,7 +57,7 @@ header.masthead{
 }
 
 .bg-light {
-    background-color: #f8f9fa!important;
+    background-color: #f7f7f7 !important;
 }
 
 .bg-content-text {
