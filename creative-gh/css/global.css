@@ -57,13 +57,22 @@ header.masthead{
 }
 
 .bg-light {
-    background-color: #f7f7f7 !important;
+    /* background-color: #f7f7f7 !important; */
+}
+
+.footer-container{
+    background: #f1f1f1 none repeat scroll 0 0;
+    padding: 15px 0;
 }
 
 .bg-content-text {
     background-color: #ff6363;
 }
 
+
+.hr-light{
+    border-color: white;
+}
 .title-text {
     color: #ffffff;
 }
@@ -78,4 +87,25 @@ header.masthead{
 
 .section-no-padding-bottom{
     padding-bottom: 0;
+}
+
+.container-with-bg{
+    background: rgba(248, 248, 248, 0.8) url(../assets/backgroud3.jpg);;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    width: 100%;
+    height: auto;
+    position: relative; */
+}
+
+.container-bg-overly {
+    background: rgba(0, 0, 0, 0.60) !important;;
+    width: 100%;
+    height: 100%;
 }
