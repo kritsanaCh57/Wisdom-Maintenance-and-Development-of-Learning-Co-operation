@@ -114,7 +114,10 @@ gulp.task('default', ['css', 'js', 'vendor']);
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./",
+      serveStaticOptions: {
+        extensions: ["html"]
+      }
     }
   });
 });

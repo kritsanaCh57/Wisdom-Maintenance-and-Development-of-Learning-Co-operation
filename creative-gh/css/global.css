@@ -9,8 +9,14 @@ body{
 
 header.masthead{
     background-image: url(../assets/backgroud3.jpg);
-    background-color: hsla(0,0%,100%,0.2);
+    background-color: hsla(0,0%,0%,0.3); 
+    /*background: rgba(0, 0, 0, 0.60);*/
     background-blend-mode: overlay;
+}
+
+.card{
+    box-shadow: 0 0 100px rgba(0,0,0,.08);
+    margin-bottom: 40px;
 }
 
 .sub-text-left{
@@ -57,7 +63,13 @@ header.masthead{
 }
 
 .bg-light {
-    /* background-color: #f7f7f7 !important; */
+    background-color: #f7f7f7 !important;
+}
+
+.bg-light-content{
+    padding: 30px 20px;
+    border: 0;
+    background: #fff none repeat scroll 0 0;
 }
 
 .footer-container{
@@ -108,4 +120,16 @@ header.masthead{
     background: rgba(0, 0, 0, 0.60) !important;;
     width: 100%;
     height: 100%;
+}
+
+.detail-margin-bottom {
+    margin-bottom:  1.5rem!important
+}
+
+.detail-header {
+    text-align: left;
+}
+
+.detail-text-indent{
+    text-indent: 50px;
 }
