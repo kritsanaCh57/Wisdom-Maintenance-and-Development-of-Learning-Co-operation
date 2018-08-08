@@ -56,22 +56,31 @@
     <div class="container ">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center col-no-padding ">
-          <img class="img-fluid sr-button" src="./assets/images/index/6.JPG" alt="">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol id="CAROUSEL_ALBUM_LIST" class="carousel-indicators"></ol>
+            <div id="ALBUM_LIST" class="carousel-inner card-box-shadow" role="listbox"></div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="row ">
         <div id="paragraph" class="col-lg-8 mx-auto text-center bg-light-content card">
-          <h2 id="title" class="section-heading detail-header detail-margin-bottom  sr-button"></h2>
+          <h2 id="title" class="section-heading detail-header sr-button"></h2>
+          <hr class="hr-detail">
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center col-no-padding ">
-          <img class="img-fluid sr-button" src="./assets/images/projcet-detail/4.JPG" alt="">
-        </div>
-      </div>
+
       <div class="row ">
         <div class="col-lg-8 mx-auto text-center bg-light-content card">
-          <h3 id="title-featured"class="section-heading detail-header detail-margin-bottom sr-button">วัตถุประสงค์</h3>
+          <h3 id="title-featured"class="section-heading detail-header sr-button">วัตถุประสงค์</h3>
+          <hr class="hr-detail">
           <ol id="content-featured" class="detail-margin-bottom">
           </ol>
         </div>
@@ -112,6 +121,13 @@
     readTextFile(`assets/JSON/${id}.json`, function(text){
       const data = JSON.parse(text);
       console.log(data);
+      
+      $.each(data.images, function (key, value) {
+        $("#CAROUSEL_ALBUM_LIST").append(`<li data-target="#carouselExampleIndicators" data-slide-to="${key}" class="${key == 0 ? 'active' : ''}"></li>`)
+        $("#ALBUM_LIST").append(`<div class="carousel-item ${key == 0 ? 'active' : ''}"><img class="d-block img-fluid" src="${value}" alt="First slide"></div>`)
+      })
+
+
       $( "#title" ).append(data.title)
       //start content
       $.each( data.content, function( key, value ) {
