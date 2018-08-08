@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>โครงการสืบสานภูมิปัญญาและพัฒนาเครือข่ายการเรียนรู้ด้านการสูงอายุ มหาวิทยาลัยอุบลราชธานี</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'> -->
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="css/global.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" class="background-color: #212529!important;">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" style="color: #f05f40;" href="index.html">
+        <img src="./assets/ubu_logo.png" class="img-logo" /> มหาวิทยาลัยอุบลราชธานี
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" style="color: #f05f40;" href="index.html">หน้าแรก</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <section class="bg-light">
+    <div class="container ">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center col-no-padding ">
+          <img class="img-fluid sr-button" src="./assets/images/index/6.JPG" alt="">
+        </div>
+      </div>
+      <div class="row ">
+        <div id="paragraph" class="col-lg-8 mx-auto text-center bg-light-content card">
+          <h2 id="title" class="section-heading detail-header detail-margin-bottom  sr-button"></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center col-no-padding ">
+          <img class="img-fluid sr-button" src="./assets/images/projcet-detail/4.JPG" alt="">
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-lg-8 mx-auto text-center bg-light-content card">
+          <h3 id="title-featured"class="section-heading detail-header detail-margin-bottom sr-button">วัตถุประสงค์</h3>
+          <ol id="content-featured" class="detail-margin-bottom">
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="footer" class="section-no-padding-bottom footer-container" style="    box-shadow: 0 0 100px rgba(0,0,0,.08);">
+    <div class="container ">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <!--<hr class="my-4"> -->
+          <p class="mb-5" style="padding-top: 24px;">
+            Copyright © 2018
+            <b>Faculty of Nursing, Ubon Ratchathani University</b>. All Rights Reserved Designed by Kritsana Chinnacort
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+  <script >
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get("id");
+
+    readTextFile(`assets/JSON/${id}.json`, function(text){
+      const data = JSON.parse(text);
+      console.log(data);
+      $( "#title" ).append(data.title)
+      //start content
+      $.each( data.content, function( key, value ) {
+        $( "#paragraph" ).append(`<p class="sub-text-left detail-margin-bottom detail-text-indent sr-button"><b style="font-size: 24px;">${value.bold}</b>${value.paragraph}</p>`);
+      });
+      //<a class="portfolio-box sr-button detail-margin-bottom" href="./assets/images/projcet-detail/3.jpg">
+      //<img class="img-fluid" style="max-width: 70%;" src="./assets/images/projcet-detail/3.jpg" alt="">
+      //</a>
+      //end content
+
+      //start featured
+      $( "#title-featured" ).append(data.featured.title);
+      $.each( data.featured.list, function( key, value ) {
+        $( "#content-featured" ).append( `<li class="sub-text-left list-margin-bottom sr-button">${value}</li>`);
+      });
+      //end featured
+    });
+
+    function readTextFile(file, callback) {
+      let rawFile = new XMLHttpRequest();
+      rawFile.overrideMimeType("application/json");
+      rawFile.open("GET", file, true);
+      rawFile.onreadystatechange = function() {
+          if (rawFile.readyState === 4 && rawFile.status == "200") {
+              callback(rawFile.responseText);
+          }
+      }
+      rawFile.send(null);
+    }
+  </script>
+</body>
+
+</html>
