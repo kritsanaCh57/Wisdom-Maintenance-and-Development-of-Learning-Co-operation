@@ -158,14 +158,24 @@ header.masthead{
 
 .carousel-item{
     background-color: #efefef;
-  }
-  
-  
+}
+
 .d-block {
     margin-left: auto;
     margin-right: auto;
-
-    height: 440px;
-
+    height: 275px;
+    width: auto;
     overflow: hidden;
 }
+
+@media screen and (min-width: 550px) {
+    .d-block {
+        margin-left: auto;
+        margin-right: auto;
+        height: 440px;
+        width: auto;
+        overflow: hidden;
+    }
+}
+
+
