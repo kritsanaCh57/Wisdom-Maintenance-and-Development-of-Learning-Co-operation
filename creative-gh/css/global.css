@@ -49,6 +49,10 @@ header.masthead{
     padding-right: 16px;
 }
 
+.col-padding-top-bot {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
 .col-no-margin  {
     margin-left: 0;
     margin-right: 0;

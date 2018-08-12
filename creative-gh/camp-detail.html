@@ -68,6 +68,20 @@
     </div>
   </section>
 
+  <section id="gallery-container" class="bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center ">
+          <h2 id="title-gallery" class="section-heading sr-button"></h2>
+          <hr class="my-4 hr-light">
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid p-0">
+      <!-- image fill here -->
+      <div id="gallery" class="row no-gutters popup-gallery"></div>
+    </div>
+  </section>
   <section id="footer" class="section-no-padding-bottom footer-container" style="    box-shadow: 0 0 100px rgba(0,0,0,.08);">
     <div class="container ">
       <div class="row">
@@ -97,27 +111,40 @@
   <script>
     const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
-
     readTextFile(`assets/JSON/camps/${id}.json`, function (text) {
       const data = JSON.parse(text);
       console.log(data);
       if(data.title_images){
-        $("#title-image").append(`
-          <img class="img-fluid sr-button" src="${data.title_images}" alt="">
-        `)
+        $("#title-image").append(`<img class="img-fluid sr-button" src="${data.title_images}" alt="data.title">`)
       }
-      $.each(data.images, function (key, value) {
-        $("#CAROUSEL_ALBUM_LIST").append(`<li data-target="#carouselExampleIndicators" data-slide-to="${key}" class="${key == 0 ? 'active' : ''}"></li>`)
-        $("#ALBUM_LIST").append(`<div class="carousel-item ${key == 0 ? 'active' : ''}"><img class="d-block img-fluid" src="${value}" alt="First slide"></div>`)
-      })
 
       $("#title").append(data.title)
-      //start content
+      $("#title-gallery").append(`${data.title}`)
+
       $.each(data.content, function (key, value) {
         $("#paragraph").append(`<p class="sub-text-left detail-margin-bottom detail-text-indent sr-button"><b style="font-size: 24px;">${value.bold}</b>${value.paragraph}</p>`);
       });
-
-
+      if(data.images.length){
+        $.each(data.images, function (key, value) {
+          $("#gallery").append(`
+            <div class="col-lg-3 col-sm-6">
+              <a class="portfolio-box sr-button" href="${value}">
+                <img class="img-fluid" src="${value}" alt="">
+                <div class="portfolio-box-caption">
+                  <div class="portfolio-box-caption-content">
+                    <div class="project-category text-faded">
+                      แตะเพื่อดูแบบเต็มจอ
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          `);
+        });
+      }else{
+        $("#gallery-container").remove()
+      }
+      
     });
 
     function readTextFile(file, callback) {
