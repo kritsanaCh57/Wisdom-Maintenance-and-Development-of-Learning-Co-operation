@@ -24,10 +24,23 @@ header.masthead{
 }
 .sub-text-left{
     text-align: left;
+
+}
+.sub-head-1 {
+    font-size: 1.275rem !important;
 }
 
+.sub-text-1 {
+    text-indent: 50px;
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
 .text-faded-2 {
     color: rgba(255,255,255,0.9);
+}
+
+.project-name{
+    font-size: 1.4rem !important;
 }
 
 .text-p-justify{
