@@ -6,7 +6,10 @@ body{
 .img-logo{
     height: 40px;
 }
-
+.banner-title{
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
 header.masthead{
     background-image: url(../assets/backgroud3.jpg);
     background-color: hsla(0,0%,0%,0.3); 
@@ -44,7 +47,7 @@ header.masthead{
 }
 
 .text-p-justify{
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .text-modal{
@@ -185,6 +188,11 @@ header.masthead{
     overflow: hidden;
 }
 
+.d-sm-none {
+    margin: 0 !important;
+    height: 100% !important;
+}
+
 @media screen and (min-width: 550px) {
     .d-block {
         margin-left: auto;
@@ -193,6 +201,8 @@ header.masthead{
         width: auto;
         overflow: hidden;
     }
+
+
 }
 
 
