@@ -12,11 +12,14 @@ body{
 }
 header.masthead{
     background-image: url(../assets/backgroud3.jpg);
-    background-color: hsla(0,0%,0%,0.3); 
+    background-color: hsla(0,0%,0%,0.6); 
     /*background: rgba(0, 0, 0, 0.60);*/
     background-blend-mode: overlay;
 }
+header.masthead p {
+    font-weight: 700;
 
+}
 .card{
     box-shadow: 0 0 100px rgba(0,0,0,.08);
     margin-bottom: 40px;
@@ -30,20 +33,25 @@ header.masthead{
 
 }
 .sub-head-1 {
-    font-size: 1.275rem !important;
+    font-size: 1.5rem !important;
 }
 
 .sub-text-1 {
     text-indent: 50px;
-    font-size: 1.2rem;
-    color: #f0f0f0;
+    font-size: 1.5rem;
+    color: #ffffff;
 }
 .text-faded-2 {
     color: rgba(255,255,255,0.9);
 }
-
+h2 {
+    font-size: 2.4rem;
+}
 .project-name{
-    font-size: 1.4rem !important;
+    font-size: 2rem !important;
+}
+.high-ligth {
+    /*font-size: 2rem !important;*/
 }
 
 .text-p-justify{
