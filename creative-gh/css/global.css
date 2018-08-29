@@ -38,7 +38,7 @@ header.masthead p {
 
 .sub-text-1 {
     text-indent: 50px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #ffffff;
 }
 .text-faded-2 {
@@ -213,4 +213,11 @@ h2 {
 
 }
 
+.title-container{
+    color: #444 !important;
+}
+
+.content-container {
+    color: #333 !important;
+}
 
