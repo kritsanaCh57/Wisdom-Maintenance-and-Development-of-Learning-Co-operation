@@ -97,7 +97,7 @@
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <!--<hr class="my-4"> -->
-          <p class="mb-5" style="padding-top: 24px;">
+          <p class="mb-5 footer-bar" style="padding-top: 24px;">
             Copyright © 2018
             <b>Faculty of Nursing, Ubon Ratchathani University</b>. All Rights Reserved Designed by Kritsana Chinnacort
           </p>
@@ -119,53 +119,52 @@
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
   <script >
-    const url = new URL(window.location.href);
-    const id = url.searchParams.get("id");
+    $( document ).ready(function() {
+      const url = new URL(window.location.href);
+      const id = url.searchParams.get("id");
 
-    readTextFile(`assets/JSON/${id}.json`, function(text){
-      const data = JSON.parse(text);
-      console.log(data);
-      
-      $.each(data.images, function (key, value) {
-        $("#CAROUSEL_ALBUM_LIST").append(`<li data-target="#carouselExampleIndicators" data-slide-to="${key}" class="${key == 0 ? 'active' : ''}"></li>`)
-        $("#ALBUM_LIST").append(`<div class="carousel-item ${key == 0 ? 'active' : ''}"><img class="d-block img-fluid" src="${value}" alt="First slide"></div>`)
-      })
+      readTextFile(`assets/JSON/${id}.json`, function(text){
+        const data = JSON.parse(text);
+        console.log(data);
+        
+        $.each(data.images, function (key, value) {
+          $("#CAROUSEL_ALBUM_LIST").append(`<li data-target="#carouselExampleIndicators" data-slide-to="${key}" class="${key == 0 ? 'active' : ''}"></li>`)
+          $("#ALBUM_LIST").append(`<div class="carousel-item ${key == 0 ? 'active' : ''}"><img class="d-block img-fluid" src="${value}" alt="First slide"></div>`)
+        })
 
-        $( "#title" ).append(data.title)
-        //start content
-        $.each( data.content, function( key, value ) {
-          $( "#paragraph" ).append(`<p class="sub-text-left detail-margin-bottom detail-text-indent sr-button"><b style="font-size: 24px;">${value.bold}</b>${value.paragraph}</p>`);
-        });
+          $( "#title" ).append(data.title)
+          //start content
+          $.each( data.content, function( key, value ) {
+            $( "#paragraph" ).append(`<p class="sub-text-left detail-margin-bottom detail-text-indent sr-button"><b style="font-size: 24px;">${value.bold}</b>${value.paragraph}</p>`);
+          });
 
-      //<a class="portfolio-box sr-button detail-margin-bottom" href="./assets/images/projcet-detail/3.jpg">
-      //<img class="img-fluid" style="max-width: 70%;" src="./assets/images/projcet-detail/3.jpg" alt="">
-      //</a>
-      //end content
+        //start featured
+        if(data.featured.list.length !== 0){
+          $( "#title-featured" ).append(data.featured.title);
+          $.each( data.featured.list, function( key, value ) {
+            $( "#content-featured" ).append( `<li class="sub-text-left list-margin-bottom sr-button">${value}</li>`);
+          });
+        }else{
+          $("#featured-container").remove()
+        }
 
-      //start featured
-      if(data.featured.list.length !== 0){
-        $( "#title-featured" ).append(data.featured.title);
-        $.each( data.featured.list, function( key, value ) {
-          $( "#content-featured" ).append( `<li class="sub-text-left list-margin-bottom sr-button">${value}</li>`);
-        });
-      }else{
-        $("#featured-container").remove()
-      }
+        //end featured
+      });
 
-      //end featured
-    });
-
-    function readTextFile(file, callback) {
-      let rawFile = new XMLHttpRequest();
-      rawFile.overrideMimeType("application/json");
-      rawFile.open("GET", file, true);
-      rawFile.onreadystatechange = function() {
+      function readTextFile(file, callback) {
+        let rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function() {
           if (rawFile.readyState === 4 && rawFile.status == "200") {
               callback(rawFile.responseText);
           }
+        }
+        rawFile.send(null);
       }
-      rawFile.send(null);
-    }
+
+    });
+   
   </script>
 </body>
 

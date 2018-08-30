@@ -18,8 +18,7 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
-  <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
-    rel='stylesheet' type='text/css'> -->
+
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -90,7 +89,7 @@
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <!--<hr class="my-4"> -->
-          <p class="mb-5" style="padding-top: 24px;">
+          <p class="mb-5 footer-bar" style="padding-top: 24px;">
             Copyright © 2018
             <b>Faculty of Nursing, Ubon Ratchathani University</b>. All Rights Reserved Designed by Kritsana Chinnacort
           </p>
@@ -112,55 +111,58 @@
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
   <script>
-    const url = new URL(window.location.href);
-    const id = url.searchParams.get("id");
-    readTextFile(`assets/JSON/camps/${id}.json`, function (text) {
-      const data = JSON.parse(text);
-      console.log(data);
-      if(data.title_images){
-        $("#title-image").append(`<img class="img-fluid sr-button" src="${data.title_images}" alt="data.title">`)
-      }
+    $( document ).ready(function() {
+      const url = new URL(window.location.href);
+      const id = url.searchParams.get("id");
+      readTextFile(`assets/JSON/camps/${id}.json`, function (text) {
+        const data = JSON.parse(text);
+        console.log(data);
+        if(data.title_images){
+          $("#title-image").append(`<img class="img-fluid sr-button" src="${data.title_images}" alt="data.title">`)
+        }
 
-      $("#title").append(data.title)
-      $("#title-gallery").append(`${data.title}`)
+        $("#title").append(data.title)
+        $("#title-gallery").append(`${data.title}`)
 
-      $.each(data.content, function (key, value) {
-        $("#paragraph").append(`<p class="sub-text-left detail-margin-bottom detail-text-indent sr-button"><b style="font-size: 24px;">${value.bold}</b>${value.paragraph}</p>`);
-      });
-      if(data.images.length){
-        $.each(data.images, function (key, value) {
-          $("#gallery").append(`
-            <div class="col-lg-3 col-sm-6">
-              <a class="portfolio-box sr-button" href="${value}">
-                <img class="img-fluid" src="${value}" alt="">
-                <div class="portfolio-box-caption">
-                  <div class="portfolio-box-caption-content">
-                    <div class="project-category text-faded">
-                      แตะเพื่อดูแบบเต็มจอ
+        $.each(data.content, function (key, value) {
+          $("#paragraph").append(`<p class="sub-text-left detail-margin-bottom detail-text-indent sr-button"><b style="font-size: 24px;">${value.bold}</b>${value.paragraph}</p>`);
+        });
+        if(data.images.length){
+          $.each(data.images, function (key, value) {
+            $("#gallery").append(`
+              <div class="col-lg-3 col-sm-6">
+                <a class="portfolio-box sr-button" href="${value}">
+                  <img class="img-fluid" src="${value}" alt="">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded">
+                        แตะเพื่อดูแบบเต็มจอ
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </div>
-          `);
-        });
-      }else{
-        $("#gallery-container").remove()
+                </a>
+              </div>
+            `);
+          });
+        }else{
+          $("#gallery-container").remove()
+        }
+        
+      });
+
+      function readTextFile(file, callback) {
+        let rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function () {
+          if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+          }
+        }
+        rawFile.send(null);
       }
-      
     });
 
-    function readTextFile(file, callback) {
-      let rawFile = new XMLHttpRequest();
-      rawFile.overrideMimeType("application/json");
-      rawFile.open("GET", file, true);
-      rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-          callback(rawFile.responseText);
-        }
-      }
-      rawFile.send(null);
-    }
   </script>
 </body>
 
