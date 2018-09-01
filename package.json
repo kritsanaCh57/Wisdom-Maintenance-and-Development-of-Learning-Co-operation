@@ -1,8 +1,8 @@
 {
-  "title": "Creative",
-  "name": "startbootstrap-creative",
-  "version": "4.1.1",
-  "description": "Creative is a stylish one page HTML theme for Bootstrap.",
+  "title": "Wisdom Maintenance and Development of Learning Co-operation",
+  "name": "Wisdom Maintenance and Development of Learning Co-operation",
+  "version": "1",
+  "description": "Wisdom Maintenance and Development of Learning Co-operation",
   "keywords": [
     "css",
     "sass",
@@ -11,20 +11,8 @@
     "theme",
     "template"
   ],
-  "homepage": "https://startbootstrap.com/template-overviews/creative",
-  "bugs": {
-    "url": "https://github.com/BlackrockDigital/startbootstrap-creative/issues",
-    "email": "feedback@startbootstrap.com"
-  },
   "license": "MIT",
   "author": "Start Bootstrap",
-  "contributors": [
-    "David Miller (http://davidmiller.io/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-creative.git"
-  },
   "dependencies": {
     "bootstrap": "4.1.1",
     "browser-sync": "^2.24.6",
